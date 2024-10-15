@@ -14,6 +14,7 @@ RUN apt install net-tools -y
 
 RUN pip install --upgrade pip
 RUN su -c "pip3 install jobspy"
+RUN su -c "pip3 install lxml-html-clean"
 RUN su -c "pip3 install tls_client"
 RUN apt install software-properties-common -y
 RUN apt install openjdk-17-jdk -y
