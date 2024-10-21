@@ -13,14 +13,14 @@ from api.endpoints import jobs
 from api.endpoints import nlp as nlp_endpoint
 
 app = FastAPI(
-    title="Today Intel",
-    description="This is the api behind todayintel.com",
+    title="Intel",
+    description="This is spacy nlp api that can be used to extract content for your A.I application",
     version="0.5",
     terms_of_service="https://lzomedia.com/terms/",
     contact={
-        "name": "Lzo Media",
-        "url": "https://LzoMedia.com/",
-        "email": "stefan@LzoMedia.com",
+        "name": "Laravel Agency",
+        "url": "https://izdrail.com/",
+        "email": "stefan@izdrail.com",
     },
     license_info={
         "name": "Apache 2.0",
