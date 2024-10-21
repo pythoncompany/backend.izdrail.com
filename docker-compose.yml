@@ -3,11 +3,11 @@ version: '3'
 services:
   api.todayintel.com:
     build: .
-    image: cornatul/api.todayintel.com:v1
+    image: izdrail/intel.izdrail.com:latest
     container_name: api.todayintel.com
     restart: always
     ports:
-      - "8001:8001"
+      - "8003:8003"
     volumes:
       - type: bind
         source: .

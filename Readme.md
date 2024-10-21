@@ -1,4 +1,4 @@
-# Today Intel API Documentation
+# Intel API Documentation
 
 This repository contains the API documentation for the Today Intel app. 
 The API is designed to provide various functionalities related to news, SEO analysis, NLP, videos, and more.
@@ -15,8 +15,8 @@ The API is designed to provide various functionalities related to news, SEO anal
 
 ## Introduction
 
-This API is the backend for the Today Intel app, providing endpoints for fetching news,
-running SEO analysis, performing NLP tasks, and more. It adheres to the OpenAPI 3.1.0 specification.
+This API is the backend for the Today Intel app, providing endpoints for fetching news, running SEO analysis, performing NLP tasks, and more. 
+It adheres to the OpenAPI 3.1.0 specification.
 
 ## Getting Started
 
@@ -27,7 +27,7 @@ To get started with the Today Intel API, follow these steps:
 3. Set up the required dependencies.
 4. Make requests to the API endpoints as needed.
 
-For more details, refer to the [Terms of Service](https://todayintel.com/terms/) provided by [Stefan Laravel Developer](https://lzomedia.com).
+For more details, refer to the [Terms of Service](https://izdrail.com/terms/) provided by [Laravel Agency Retainer](https://izdrail.com).
 
 ## API Endpoints
 
@@ -91,3 +91,18 @@ For detailed information on request and response formats, refer to the OpenAPI s
   ]
 }
   ```
+
+
+## Docker Image
+
+The Docker image is available on Docker Hub at [izdrail/intel.izdrail.com](https://hub.docker.com/r/izdrail/intel.izdrail.com).
+
+
+## Docker Compose File
+
+A Docker Compose file is provided in the `docker-compose.yml` file.
+
+
+## Contributing
+
+Contributions are welcome!
