@@ -4,6 +4,8 @@ from cachetools import TTLCache
 import os
 from seoanalyzer import analyze
 from lighthouse import LighthouseRunner
+from fastapi import FastAPI, File, UploadFile
+import pymupdf4llm
 import spacy
 from nltk.corpus import wordnet
 from nltk.stem import WordNetLemmatizer
@@ -13,6 +15,11 @@ import nltk
 import random
 nltk.download('averaged_perceptron_tagger')
 
+# Directory to save the uploaded PDFs
+UPLOAD_DIRECTORY = "pdfs"
+
+# Ensure the upload directory exists
+os.makedirs(UPLOAD_DIRECTORY, exist_ok=True)
 router = APIRouter()
 lemmatizer = WordNetLemmatizer()
 
@@ -70,3 +77,31 @@ async def root(data: RewriteText):
         "original_text": original_text,
         "rewritten_text": replace_with_synonyms(original_text),
     }
+
+
+
+@router.post("/testing/pdf-reader/")
+async def upload(file: UploadFile = File(...)):
+    # Check if the file is a PDF by verifying the MIME type and file extension
+    if file.content_type != "application/pdf" or not file.filename.endswith(".pdf"):
+        raise HTTPException(status_code=400, detail="Only PDF files are allowed.")
+
+    try:
+        # Generate the full file path for the uploaded file
+        file_path = os.path.join(UPLOAD_DIRECTORY, file.filename)
+
+        # Read and save the uploaded PDF file
+        contents = file.file.read()
+        with open(file_path, 'wb') as f:
+            f.write(contents)
+
+        # Convert the PDF to markdown using pymupdf4llm
+        markdown_text = pymupdf4llm.to_markdown(file_path)
+
+    except Exception as e:
+        return {"message": f"There was an error processing the file: {e}"}
+    finally:
+        file.file.close()  # Ensure the file is closed after reading
+
+    # Return the markdown text as a response
+    return {"message": f"Successfully uploaded {file.filename}", "markdown": markdown_text}

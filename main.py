@@ -16,10 +16,10 @@ app = FastAPI(
     title="Intel",
     description="This is spacy nlp api that can be used to extract content for your A.I application",
     version="0.5",
-    terms_of_service="https://lzomedia.com/terms/",
+    terms_of_service="https://izdrail.com/terms/",
     contact={
         "name": "Laravel Agency",
-        "url": "https://izdrail.com/",
+        "url": "https://izdrail.com/services/laravel",
         "email": "stefan@izdrail.com",
     },
     license_info={

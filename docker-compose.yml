@@ -1,10 +1,9 @@
 version: '3'
-
 services:
   api.todayintel.com:
     build: .
     image: izdrail/intel.izdrail.com:latest
-    container_name: api.todayintel.com
+    container_name: intel.izdrail.com
     restart: always
     ports:
       - "8003:8003"

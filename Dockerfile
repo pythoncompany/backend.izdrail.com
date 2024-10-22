@@ -48,7 +48,9 @@ COPY . .
 
 
 # Install some other packages and download the models
+RUN su -c "pip3 install pymupdf4llm"
 RUN su -c "pip3 install instabot"
+RUN su -c "pip3 install python-multipart"
 RUN su -c "pip3 install yake"
 RUN su -c "pip3 install tls_client"
 RUN su -c "pip3 install uvicorn"
