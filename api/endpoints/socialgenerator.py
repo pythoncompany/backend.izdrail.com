@@ -7,8 +7,6 @@ from newspaper import Config, Article
 nlp = spacy.load("en_core_web_md")
 router = APIRouter()
 import requests
-API_BASE_URL = "https://api.cloudflare.com/client/v4/accounts/e2fa0631e7c2fafc79e68a70a5968569/ai/run/"
-headers = {"Authorization": "Bearer LIlFXCIYGIv1H_Z3h4EG2DYazo6s-EIXgW0DKKxR"}
 
 
 class SeoPostGenerator(BaseModel):

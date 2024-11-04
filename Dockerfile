@@ -19,6 +19,26 @@ RUN su -c "pip3 install tls_client"
 RUN apt install software-properties-common -y
 RUN apt install openjdk-17-jdk -y
 RUN java --version
+
+# Install Maven
+RUN apt-get install maven -y
+
+# Clone and build skraper
+WORKDIR /tmp
+RUN git clone https://github.com/sokomishalov/skraper.git
+WORKDIR /tmp/skraper
+RUN ./mvnw clean package -DskipTests=true
+
+# Move the built jar to a suitable location
+RUN mkdir -p /usr/local/skraper
+RUN cp  /tmp/skraper/cli/target/cli.jar /usr/local/skraper/
+
+# Create a convenient shell script to run skraper
+RUN echo '#!/bin/bash\njava -jar //usr/local/skraper/cli.jar "$@"' > /usr/local/bin/skraper
+RUN chmod +x /usr/local/bin/skraper
+
+
+
 WORKDIR /app
 # Customization
 RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.1.5/zsh-in-docker.sh)" -- \

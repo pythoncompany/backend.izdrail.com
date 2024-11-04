@@ -9,12 +9,13 @@ from api.endpoints import google
 from api.endpoints import seo
 from api.endpoints import videos
 from api.endpoints import testing
+from api.endpoints import scrapper
 from api.endpoints import jobs
 from api.endpoints import nlp as nlp_endpoint
 
 app = FastAPI(
     title="Intel",
-    description="This is spacy nlp api that can be used to extract content for your A.I application",
+    description="This is spacy nlp api that can be used to extract content and improve content for your A.I application",
     version="0.5",
     terms_of_service="https://izdrail.com/terms/",
     contact={
@@ -45,6 +46,7 @@ app.include_router(videos.router)
 app.include_router(testing.router)
 app.include_router(socialgenerator.router)
 app.include_router(jobs.router)
+app.include_router(scrapper.router)
 
 @app.get("/")
 async def root():
