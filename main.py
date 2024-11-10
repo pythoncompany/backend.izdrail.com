@@ -1,6 +1,8 @@
 import asyncio
 
 from fastapi import FastAPI
+from fastapi.responses import JSONResponse
+
 from fastapi.middleware.cors import CORSMiddleware
 
 from api.endpoints import socialgenerator
@@ -12,12 +14,14 @@ from api.endpoints import testing
 from api.endpoints import scrapper
 from api.endpoints import jobs
 from api.endpoints import nlp as nlp_endpoint
+from api.endpoints import osint
 
 app = FastAPI(
     title="Intel",
     description="This is spacy nlp api that can be used to extract content and improve content for your A.I application",
     version="0.5",
     terms_of_service="https://izdrail.com/terms/",
+
     contact={
         "name": "Laravel Agency",
         "url": "https://izdrail.com/services/laravel",
@@ -47,6 +51,7 @@ app.include_router(testing.router)
 app.include_router(socialgenerator.router)
 app.include_router(jobs.router)
 app.include_router(scrapper.router)
+app.include_router(osint.router)
 
 @app.get("/")
 async def root():
