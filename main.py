@@ -51,7 +51,7 @@ app.include_router(testing.router)
 app.include_router(socialgenerator.router)
 app.include_router(jobs.router)
 app.include_router(scrapper.router)
-app.include_router(osint.router)
+# app.include_router(osint.router)
 
 @app.get("/")
 async def root():

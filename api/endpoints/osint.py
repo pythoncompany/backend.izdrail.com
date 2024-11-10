@@ -25,7 +25,7 @@ def perform_scan(scan_request: ScanRequest):
         'User-Agent': 'insomnia/10.0.0'
     }
     data = {
-        'scanname': f"Mobile Osint App  {scan_request.query}",
+        'scanname': f"Mobile Osint App {scan_request.query}",
         'scantarget': scan_request.query,
         'usecase': 'all',
         'modulelist': '',
