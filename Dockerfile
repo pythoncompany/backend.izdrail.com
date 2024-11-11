@@ -1,5 +1,5 @@
 FROM python:3.11
-LABEL maintainer="Stefan <stefan@lzomedia.com>"
+LABEL maintainer="Stefan Bogdanel <stefan@izdrail.com>"
 RUN apt update
 RUN apt install curl -y
 RUN apt install nodejs -y
@@ -57,9 +57,6 @@ RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/
 RUN su -c "apt install chromium -y"
 RUN su -c "pip3 install lighthouse-python-plus"
 
-
-
-
 COPY ./requirements.txt /app/requirements.txt
 
 RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt
@@ -90,4 +87,5 @@ ADD . /app/
 
 
 EXPOSE 8003
+
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8003", "--reload"]

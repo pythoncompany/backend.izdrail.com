@@ -1,33 +1,24 @@
-# Intel API Documentation
+# Backend
 
-This repository contains the API documentation for the Today Intel app. 
-The API is designed to provide various functionalities related to news, SEO analysis, NLP, videos, and more.
-
-## Table of Contents
-
-- [Introduction](#introduction)
-- [Getting Started](#getting-started)
-- [API Endpoints](#api-endpoints)
-- [Request Examples](#request-examples)
-- [Response Examples](#response-examples)
-- [Contributing](#contributing)
-- [License](#license)
-
-## Introduction
-
-This API is the backend for the Today Intel app, providing endpoints for fetching news, running SEO analysis, performing NLP tasks, and more. 
-It adheres to the OpenAPI 3.1.0 specification.
+This is the backend of my personal website.
+This documentation assumes that you are familiar with: Linux, Docker, and Python.
+If you don't know how to use these technologies, you can use the Live API which is available at [backend.izdrail.com](https://backend.izdrail.com/docs).
 
 ## Getting Started
 
-To get started with the Today Intel API, follow these steps:
+If you are interested in using this API, you can follow these steps to get started:
 
 1. Clone the repository.
-2. Review the API documentation to understand available endpoints and their functionalities.
-3. Set up the required dependencies.
-4. Make requests to the API endpoints as needed.
-
-For more details, refer to the [Terms of Service](https://izdrail.com/terms/) provided by [Laravel Agency Retainer](https://izdrail.com).
+```asciidoc
+git clone https://github.com/pythoncompany/backend.izdrail.com.git
+```
+2. Navigate to the project directory.
+3. Run the following command to start the API server.
+```asciidoc
+make build
+```
+4.
+For more details, refer to the [Terms of Service](https://izdrail.com/terms/) provided by [Python Company](https://izdrail.com).
 
 ## API Endpoints
 
@@ -44,65 +35,7 @@ For more details, refer to the [Terms of Service](https://izdrail.com/terms/) pr
 - **POST /videos/youtube:** Search for videos on YouTube.
 - **GET /:** Root endpoint.
 
-For detailed information on request and response formats, refer to the OpenAPI specification in the `openapi.yaml` file.
-
-## Request Examples
-
-### Fetch News Feed
-```json
-{
-  "link": "https://example.com/feed"
-}
-```
-
-### Run SEO Analysis
-```json
-{
-  "link": "https://example.com",
-  "format": "json|html"
-}
-```
-### Perform NLP Analysis
-```json
-{
-  "link": "https://example.com/article"
-}
-```
-## Response Examples
-
-### Successful Response
-
-```json
-{
-  "data": "..."
-}
-```
-
-### Validation Error
-
-  ```json
-  {
-  "detail": [
-    {
-      "loc": [],
-      "msg": "Validation error message",
-      "type": "error_type"
-    }
-  ]
-}
-  ```
-
-
-## Docker Image
-
-The Docker image is available on Docker Hub at [izdrail/intel.izdrail.com](https://hub.docker.com/r/izdrail/intel.izdrail.com).
-
-
-## Docker Compose File
-
-A Docker Compose file is provided in the `docker-compose.yml` file.
-
-
-## Contributing
-
-Contributions are welcome!
+For detailed information on request and response formats, refer to [docs](https://backend.izdrail.com/docs).
+The url provides and interactive documentation for the API.
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

@@ -17,14 +17,15 @@ from api.endpoints import nlp as nlp_endpoint
 from api.endpoints import osint
 
 app = FastAPI(
-    title="Intel",
-    description="This is spacy nlp api that can be used to extract content and improve content for your A.I application",
+    title="Backend API",
+    description="This is a collection of endpoints for my portfolio website.It offers different functionalities for "
+                "news, SEO analysis, NLP, videos, and more.",
     version="0.5",
     terms_of_service="https://izdrail.com/terms/",
 
     contact={
-        "name": "Laravel Agency",
-        "url": "https://izdrail.com/services/laravel",
+        "name": "Stefan",
+        "url": "https://izdrail.com/",
         "email": "stefan@izdrail.com",
     },
     license_info={
@@ -42,16 +43,17 @@ app.add_middleware(
 )
 
 # Endpoints
-app.include_router(feeds.router)
-app.include_router(google.router)
-app.include_router(seo.router)
 app.include_router(nlp_endpoint.router)
+app.include_router(google.router)
+app.include_router(feeds.router)
+
+app.include_router(seo.router)
+
 app.include_router(videos.router)
 app.include_router(testing.router)
 app.include_router(socialgenerator.router)
 app.include_router(jobs.router)
 app.include_router(scrapper.router)
-# app.include_router(osint.router)
 
 @app.get("/")
 async def root():
